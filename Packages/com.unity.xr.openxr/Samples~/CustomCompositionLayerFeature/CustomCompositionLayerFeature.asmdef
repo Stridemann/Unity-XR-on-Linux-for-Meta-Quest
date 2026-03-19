@@ -1,0 +1,25 @@
+{
+    "name": "CustomCompositionLayerFeature",
+    "rootNamespace": "",
+    "references": [
+        "Unity.XR.OpenXR",
+        "Unity.XR.CompositionLayers"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": true,
+    "overrideReferences": true,
+    "precompiledReferences": [
+        "nunit.framework.dll"
+    ],
+    "autoReferenced": false,
+    "defineConstraints": [],
+    "versionDefines": [
+        {
+            "name": "com.unity.xr.compositionlayers",
+            "expression": "",
+            "define": "XR_COMPOSITION_LAYERS"
+        }
+    ],
+    "noEngineReferences": false
+}

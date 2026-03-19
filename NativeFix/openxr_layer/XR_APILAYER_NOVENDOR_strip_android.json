@@ -1,0 +1,12 @@
+{
+    "file_format_version": "1.0.0",
+    "api_layer": {
+        "name": "XR_APILAYER_NOVENDOR_strip_android",
+        "library_path": "./libXrApiLayer_strip_android.so",
+        "api_version": "1.0",
+        "implementation_version": "1",
+        "description": "Strips XR_KHR_android_create_instance from xrCreateInstance calls so Android-compiled OpenXR plugins can work on desktop Linux",
+        "enable_environment": "STRIP_ANDROID_XR_LAYER",
+        "disable_environment": "DISABLE_STRIP_ANDROID_XR_LAYER"
+    }
+}

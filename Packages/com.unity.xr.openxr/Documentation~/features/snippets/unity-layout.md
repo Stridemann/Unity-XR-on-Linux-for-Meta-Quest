@@ -1,0 +1,2 @@
+> [!NOTE]
+> Some Unity controls don't correspond to an OpenXR path. Unity expresses [Pose](https://docs.unity3d.com/Documentation/ScriptReference/Pose.html) data as individual elements, whereas OpenXR expresses poses as a group of data. These additional controls contain `Unity Layout Only` in the **OpenXR Path** column. You can use this additional Pose data for more fine-grained controls. To learn more, refer to [Pose data](xref:openxr-input#pose-data).

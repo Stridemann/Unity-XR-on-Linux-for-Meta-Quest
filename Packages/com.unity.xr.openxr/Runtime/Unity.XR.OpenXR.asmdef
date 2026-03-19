@@ -1,0 +1,62 @@
+{
+    "name": "Unity.XR.OpenXR",
+    "rootNamespace": "UnityEngine.XR.OpenXR",
+    "references": [
+        "GUID:e40ba710768534012815d3193fa296cb",
+        "GUID:f9fe0089ec81f4079af78eb2287a6163",
+        "GUID:75469ad4d38634e559750d17036d5f7c",
+        "GUID:3f088b6c6874b1b49a97747d1259079a",
+        "GUID:15fc0a57446b3144c949da3e2b9737a9"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": true,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [
+        {
+            "name": "com.unity.modules.unityanalytics",
+            "expression": "1.0.0",
+            "excludePlatforms": ["PS5"],
+            "define": "UNITY_ANALYTICS"
+        },
+        {
+            "name": "com.microsoft.mixedreality.openxr",
+            "expression": "1.0.0",
+            "define": "MICROSOFT_OPENXR_PACKAGE"
+        },
+        {
+            "name": "com.unity.xr.compositionlayers",
+            "expression": "1.0.0",
+            "define": "XR_COMPOSITION_LAYERS"
+        },
+        {
+            "name": "com.unity.inputsystem",
+            "expression": "1.4.2",
+            "define": "INPUT_SYSTEM_POSE_VALID"
+        },
+        {
+            "name": "com.unity.inputsystem",
+            "expression": "1.6.3",
+            "define": "INPUT_SYSTEM_BINDING_VALIDATOR"
+        },
+        {
+            "name": "com.unity.render-pipelines.universal",
+            "expression": "7.0.0",
+            "define": "UNITY_RENDER_PIPELINES_UNIVERSAL"
+        },
+        {
+            "name": "com.unity.modules.video",
+            "expression": "1.0.0",
+            "define": "UNITY_VIDEO"
+        },
+        {
+            "name": "Unity",
+            "expression": "6000.1.10f1",
+            "define": "SPACEWARP_RIGHT_HAND_NDC_SUPPORTED"
+        }
+    ],
+    "noEngineReferences": false
+}

@@ -1,0 +1,23 @@
+{
+    "name": "Unity.XR.OpenXR.Features.MetaQuestSupport",
+    "rootNamespace": "",
+    "references": [
+        "GUID:4847341ff46394e83bb78fbd0652937e",
+        "GUID:15fc0a57446b3144c949da3e2b9737a9"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [
+        {
+            "name": "com.unity.render-pipelines.universal",
+            "expression": "17.3.0",
+            "define": "ENABLE_RENDER_GRAPH_COMPATIBILITY_MODE_SUPPORTED"
+        }
+    ],
+    "noEngineReferences": false
+}

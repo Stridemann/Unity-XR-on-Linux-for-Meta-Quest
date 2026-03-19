@@ -1,0 +1,60 @@
+{
+  "name": "com.unity.xr.openxr",
+  "displayName": "OpenXR Plugin",
+  "version": "1.16.1",
+  "unity": "2022.3",
+  "description": "OpenXR is an open, royalty-free standard developed by Khronos that aims to simplify AR/VR development by allowing developers to target a wide range of AR/VR devices. Use this plug-in to enable OpenXR in XR Plug-in Management.",
+  "keywords": [
+    "openxr",
+    "xr",
+    "reality",
+    "xreditorsubsystem"
+  ],
+  "dependencies": {
+    "com.unity.xr.management": "4.4.0",
+    "com.unity.xr.legacyinputhelpers": "2.1.2",
+    "com.unity.inputsystem": "1.6.3",
+    "com.unity.xr.core-utils": "2.3.0",
+    "com.unity.modules.androidjni": "1.0.0"
+  },
+  "samples": [
+    {
+      "displayName": "Controller",
+      "description": "Basic sample showing how to create and reference OpenXR action maps with the new input system.",
+      "path": "Samples~/Controller"
+    },
+    {
+      "displayName": "Controller XRInput",
+      "description": "Basic sample showing how to query OpenXR input with the XR Input APIs.",
+      "path": "Samples~/ControllerXRInput"
+    },
+    {
+      "displayName": "Meshing Subsystem Feature",
+      "description": "Shows a teapot mesh generated from native mesh subsystem with physics baked in background.",
+      "path": "Samples~/MeshingFeature"
+    },
+    {
+      "displayName": "Intercept Feature",
+      "description": "Demonstrates how to intercept an OpenXR method.",
+      "path": "Samples~/InterceptFeature"
+    },
+    {
+      "displayName": "Custom Composition Layer Feature",
+      "description": "Demonstrates how to add support for a custom composition layer type.",
+      "path": "Samples~/CustomCompositionLayerFeature"
+    }
+  ],
+  "_upm": {
+    "changelog": "### Changed\n\n* Changed wording of validation rule that checks for symmetric projection when using the Multiview Render Regions Optimizations Mode.\n* Changed OpenXR loader version to 1.1.53.\n* Changed the visibility mask to not create an occlusion mesh when using a 2022.3 editor to reduce memory footprint.\n\n### Removed\n\n* Removed an unit test `PluginVersion` which was used internally to validate package version.\n\n### Fixed\n\n * Fixed the OpenXR test \"DuplicateSettingAssetTest\" to communicate with asset database when swapping asset files.\n * Fixed an issue in OpenXR Runtime Debugger window to show correctly sized buttons. ([OXRB-682](https://issuetracker.unity3d.com/issues/folder-button-in-openxr-runtime-debugger-window-is-oversized))\n * Fixed a dependency issue by including AndroidJNI as a dependency. ([OXRB-696](https://jira.unity3d.com/browse/OXRB-696))\n * Fixed a crash when using eye tracked foveated rendering and sleeping/waking device by making sure primary swapchain reference was reset before applying foveation profile.\n * Fixed unreliable writing of `xr-meta-enabled` to boot.config by ensuring it is always set based on the actual feature state.\n * Fixed Bluetooth permissions being removed when building apps using the Meta Quest Feature. The permissions are now kept when required by Unity APIs or a plugin's manifest. For more information on Android permissions in Unity, refer to [Android App Manifest](https://docs.unity3d.com/6000.2/Documentation/Manual/android-manifest.html).\n * Fixed issue where project settings window would fail to render if an OpenXR Feature was removed while the editor was running. ([OXRB-715](https://jira.unity3d.com/browse/OXRB-715))\n * Fixed an error in Project Validation related to EntityId's in Unity 6000.4+."
+  },
+  "upmCi": {
+    "footprint": "2759b98f5b8dc0e81882bf253c381a6fa7c1cd55"
+  },
+  "documentationUrl": "https://docs.unity3d.com/Packages/com.unity.xr.openxr@1.16/manual/index.html",
+  "repository": {
+    "url": "https://github.cds.internal.unity3d.com/unity/xr.sdk.openxr.git",
+    "type": "git",
+    "revision": "c7a9defb4d388418b78bd9f86b5ecc62397d6288"
+  },
+  "_fingerprint": "ef0033a586bf33cb236bfe77cb661fe1b2882748"
+}

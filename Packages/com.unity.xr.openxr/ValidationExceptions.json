@@ -1,0 +1,10 @@
+{
+    "ErrorExceptions": [
+        {
+            "ValidationTest": "Assembly Definition Validation",
+            "ExceptionMessage": "Assembly {Package-Root}\\Tests\\Runtime\\TestTooling\\Unity.XR.OpenXR.TestTooling.Tests.asmdef is not a test assembly and should not be present in the Tests folder of your package",
+            "PackageVersion": "1.16.1"
+        }
+    ],
+    "WarningExceptions": []
+}

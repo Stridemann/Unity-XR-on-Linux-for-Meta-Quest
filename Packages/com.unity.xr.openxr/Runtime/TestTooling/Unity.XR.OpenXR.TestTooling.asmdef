@@ -1,0 +1,25 @@
+{
+    "name": "Unity.XR.OpenXR.TestTooling",
+    "rootNamespace": "UnityEngine.XR.OpenXR.TestTooling",
+    "references": [
+        "Unity.XR.Management",
+        "Unity.XR.Management.Editor",
+        "Unity.XR.OpenXR",
+        "Unity.XR.OpenXR.Editor",
+        "Unity.XR.OpenXR.Features.MockRuntime"
+    ],
+    "includePlatforms": [
+        "Android",
+        "Editor",
+        "macOSStandalone",
+        "WindowsStandalone64"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": true,
+    "overrideReferences": true,
+    "precompiledReferences": [],
+    "autoReferenced": false,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
