@@ -162,6 +162,11 @@ Note: Both PC/Android profiles in `Edit → Project Settings → XR Plug-in Mana
 ./launch_unity_vr.sh
 ```
 
+Note: This error can appear in editor console, but this is not a blocker for a game:
+
+`Callback unregistration failed. Callback not registered.
+UnityEngine.XR.Management.XRGeneralSettings:AttemptInitializeXRSDKOnLoad ()`
+
 ## Building an APK for Meta Quest 3
 
 The `NativeFix/` shims and layers are **only needed for editor play mode on Linux**. APK builds run natively on Android — no compatibility hacks required.
