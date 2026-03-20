@@ -96,6 +96,12 @@ If you want to add Linux VR support to an **existing** Unity project:
 
 Copy the entire `NativeFix/` directory into your Unity project root (next to `Assets/`).
 
+Delete those files if they are exist:
+
+- NativeFix/openxr_layer/libXrApiLayer_strip_android.so
+- NativeFix/vulkan_layer/libVkLayer_force_timeline_sem.so
+- NativeFix/libfake_jvm.so
+
 ### Step 2: Copy and Adapt the Launch Script
 
 Copy `launch_unity_vr.sh` to your project root. Edit:
@@ -137,7 +143,20 @@ Use the XR Interaction Toolkit sample scenes, or add an **XR Origin (XR Rig)** t
 - Import XRI Starter Assets from the Package Manager samples
 - Use the `DemoScene` (`Assets/Samples/XR Interaction Toolkit/3.3.1/Starter Assets/DemoScene.unity`) or `XR Interaction Setup` prefab
 
-### Step 6: Launch
+### Step 6: Double check controllers:
+
+Open `Assets/XR/Settings/OpenXR Package Settings.asset`
+
+This setting should be with value `1`:
+
+```bash
+m_EditorClassIdentifier: Unity.XR.OpenXR::UnityEngine.XR.OpenXR.Features.Interactions.OculusTouchControllerProfile
+m_enabled: 1
+```
+
+Note: Both PC/Android profiles in `Edit → Project Settings → XR Plug-in Management → OpenXR → Enabled interaction profiles` should be **Oculus Touch Controller Profile** (not "Meta Quest Touch Plus" — SteamVR doesn't support the latter)
+
+### Step 7: Launch
 
 ```bash
 ./launch_unity_vr.sh
@@ -244,16 +263,20 @@ If you use **UFW** (Uncomplicated Firewall) on Linux, ALVR's automatic firewall 
 
 | Symptom | Likely Cause | Fix |
 |---|---|---|
+| Unity crash | Delete those files if they are exist: NativeFix/openxr_layer/libXrApiLayer_strip_android.so, NativeFix/vulkan_layer/libVkLayer_force_timeline_sem.so, NativeFix/libfake_jvm.so | It will generate them automatically |
+| Unity crash (step 1 doesn't help) | Use AI and Cursor, claude 4.6 opus can fix this. Point it to AI documentation. | Cursor can read logs and most likely fix the issue |
 | `DllNotFoundException: .../libm.so.6: version 'LIBC' not found` | Compat shims not built or not on `LD_LIBRARY_PATH` | Run via `launch_unity_vr.sh`; it builds them automatically |
 | `Failed to load openxr runtime loader` | Unity trying to load Windows/UWP OpenXR loader | Patch `OpenXRLoader.cs` (Step 3 above) |
 | `xrCreateInstance` fails | Android extension not stripped | Ensure `STRIP_ANDROID_XR_LAYER=1` is set and layer is built |
 | SIGSEGV in `libUnityOpenXR.so` during Play | Missing timeline semaphore or JVM | Ensure Vulkan layer + fake JVM shim are active |
 | No image in headset but no crash | ALVR not connected, or wrong graphics API | Check ALVR connection; ensure `-force-vulkan` flag is used |
-| Controllers don't work | Wrong interaction profile enabled | Enable "Oculus Touch Controller Profile" in OpenXR settings |
+| Controllers don't work | Wrong interaction profile enabled | Enable "Oculus Touch Controller Profile" in OpenXR settings and check OculusTouchControllerProfile (mentioned in readme) |
 | UI too small/large | HiDPI scaling | Adjust `GDK_SCALE`/`GDK_DPI_SCALE` in launch script |
 | APK build fails: `clang++: No such file or directory` | Broken NDK symlinks on Linux | See [NDK Broken Symlinks](#known-issue-ndk-broken-symlinks-on-linux) fix above |
 | APK: black window on Quest, not fullscreen VR | Meta Quest Support feature disabled | Enable it in OpenXR settings for Android |
 | ALVR can't find Quest on network | UFW multiport rule bug | Restart PC or add ALVR ports manually |
+
+
 
 ## License
 
