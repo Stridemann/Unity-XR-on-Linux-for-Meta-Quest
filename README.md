@@ -60,9 +60,9 @@ Controllers, head tracking, and rendering all function. This should work on othe
 - **Android Build Support** (for APK builds) — install via Unity Hub → Add Modules
 - Required packages (via Unity Package Manager):
   - `com.unity.xr.openxr` (1.16.1)
-  - `com.unity.xr.management` (4.5.4)
-  - `com.unity.xr.interaction.toolkit` (3.3.1) — for controller input
-  - `com.unity.inputsystem` (1.19.0)
+  - `com.unity.xr.management` (4.5.4) (installed automatically with openxr)
+  - `com.unity.inputsystem` (1.19.0) (installed automatically with openxr)
+  - `com.unity.xr.interaction.toolkit` (3.3.1) — for controller input (`XR Interaction Toolkit` in package manager)
 
 ### Software — Quest
 - Developer mode enabled on Quest
@@ -104,6 +104,8 @@ Copy `launch_unity_vr.sh` to your project root. Edit:
 
 ### Step 3: Patch `OpenXRLoader.cs`
 
+(you can skip this and just copy `Packages/com.unity.xr.openxr` to your project from this one)
+
 In `Packages/com.unity.xr.openxr/Runtime/OpenXRLoader.cs`, find the `LoadOpenXRSymbols()` method and add a Linux-specific loader path. Look for the `#elif UNITY_EDITOR_OSX` section and add after it:
 
 ```csharp
@@ -124,18 +126,16 @@ Also add this guard around the `EditorBuildSettings.TryGetConfigObject` block so
 
 In Unity Editor:
 
-1. **Edit → Project Settings → XR Plug-in Management → OpenXR**:
+ **Edit → Project Settings → XR Plug-in Management → OpenXR**:
    - Ensure OpenXR is enabled for Standalone
+   - Enable "Vulkan Additional Graphics Queue"
    - Under **Interaction Profiles**, enable **Oculus Touch Controller Profile** (not "Meta Quest Touch Plus" — SteamVR doesn't support the latter)
-
-2. **OpenXR Editor Settings** (via the .asset file or UI):
-   - Enable "Vulkan Additional Graphics Queue" (`m_vulkanAdditionalGraphicsQueue: 1`)
 
 ### Step 5: Set Up Your Scene
 
 Use the XR Interaction Toolkit sample scenes, or add an **XR Origin (XR Rig)** to your scene:
 - Import XRI Starter Assets from the Package Manager samples
-- Use the `DemoScene` or `XR Interaction Setup` prefab
+- Use the `DemoScene` (`Assets/Samples/XR Interaction Toolkit/3.3.1/Starter Assets/DemoScene.unity`) or `XR Interaction Setup` prefab
 
 ### Step 6: Launch
 
@@ -165,7 +165,8 @@ The `NativeFix/` shims and layers are **only needed for editor play mode on Linu
    - **Meta Quest Support** — required for Quest initialization and manifest setup
    - **Oculus Touch Controller Profile** — base controller input
    - **Meta Quest Touch Plus Controller Profile** — Quest 3 native controllers
-5. **Build**: File → Build Settings → Build and Run (with Quest connected via USB)
+5. Update your active scene in build settings
+6. **Build**: File → Build Settings → Build and Run (with Quest connected via USB)
 
 ### Known Issue: NDK Broken Symlinks on Linux
 
