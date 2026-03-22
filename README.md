@@ -6,7 +6,7 @@ Unity's OpenXR plugin ships an Android x86_64 native binary (`libUnityOpenXR.so`
 
 This project provides a set of compatibility shims and API layers that bridge the gap, making the Android OpenXR binary work transparently on desktop Linux with SteamVR.
 
-## What This Project Provides
+## What This Project Provides (technical details of changes, `NativeFix` folder)
 
 - **Bionic-to-glibc compatibility shims** — Shared libraries that export bionic's `LIBC`-versioned symbols, forwarding calls to their glibc equivalents
 - **OpenXR API layer** — Strips Android-specific extensions (`XR_KHR_android_create_instance`) from OpenXR instance creation
@@ -94,7 +94,7 @@ If you want to add Linux VR support to an **existing** Unity project:
 
 ### Step 1: Copy the NativeFix Directory
 
-Copy the entire `NativeFix/` directory into your Unity project root (next to `Assets/`).
+Copy the entire `NativeFix` directory into your Unity project root (next to `Assets/`).
 
 Delete those files if they are exist (or unity will crash):
 
