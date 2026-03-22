@@ -96,7 +96,7 @@ If you want to add Linux VR support to an **existing** Unity project:
 
 Copy the entire `NativeFix/` directory into your Unity project root (next to `Assets/`).
 
-Delete those files if they are exist:
+Delete those files if they are exist (or unity will crash):
 
 - NativeFix/openxr_layer/libXrApiLayer_strip_android.so
 - NativeFix/vulkan_layer/libVkLayer_force_timeline_sem.so
